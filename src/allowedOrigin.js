@@ -1,9 +1,8 @@
 const allowedOrigin = allowed => ({
 	before: ({ callback, event: { headers: { origin } } }, next) => {
-		console.log(origin.startsWith('https://') && origin.endsWith('ziro.app'))
 		if (origin.startsWith('https://') && origin.endsWith('ziro.app'))
 			next()
-		if (origin === allowed)
+		else if (origin === allowed)
 			next()
 		else callback(null, {
 				headers: { 'Access-Control-Allow-Origin': '*' },
