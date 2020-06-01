@@ -3,7 +3,10 @@
 
 const cors = {
 	after: ({ response }, next) => {
-		response.headers = { 'Access-Control-Allow-Origin': '*' }
+		response.headers = {
+			'Access-Control-Allow-Origin': '*',
+			'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
+		}
 		next()
 	}
 }

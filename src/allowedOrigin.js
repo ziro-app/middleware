@@ -6,14 +6,20 @@ const allowedOrigin = allowed => ({
 			else if (origin === allowed)
 				next()
 			else callback(null, {
-				headers: { 'Access-Control-Allow-Origin': '*' },
+				headers: {
+					'Access-Control-Allow-Origin': '*',
+					'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
+				},
 				statusCode: 400,
 				body: JSON.stringify('Origin not allowed') // only matters for browser requests
 			})
 		} catch (error) {
 			console.log(error)
 			callback(null, {
-				headers: { 'Access-Control-Allow-Origin': '*' },
+				headers: {
+					'Access-Control-Allow-Origin': '*',
+					'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, DELETE'
+				},
 				statusCode: 400,
 				body: JSON.stringify('Origin header not present')
 			})
