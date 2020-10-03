@@ -3,6 +3,8 @@ const allowedOrigin = allowed => ({
 		try {
 			if (origin.startsWith('https://') && origin.endsWith('ziro.app'))
 				next()
+			else if (origin.startsWith('https://') && origin.endsWith('ziro.com.br'))
+				next()
 			else if (allowed.includes(origin))
 				next()
 			else callback(null, {
